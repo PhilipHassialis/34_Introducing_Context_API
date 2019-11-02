@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -14,38 +13,36 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import withStyles from "@material-ui/core/styles/withStyles";
 import styles from "./styles/FormStyles";
-import {LanguageContext} from "./contexts/LanguageContext"
+import { LanguageContext } from "./contexts/LanguageContext";
 
 const words = {
-    english:{
-        email:"Email",
-        password:"Password",
-        signIn:"Sign In",
-        remember:"Remember Me"
+    english: {
+        email: "Email",
+        password: "Password",
+        signIn: "Sign In",
+        remember: "Remember Me"
     },
     french: {
-        email:"Adresse Electronique",
-        password:"Mot de passe",
-        signIn:"Se Connecter",
-        remember:"Souviens-toi de Moi"
-
+        email: "Adresse Electronique",
+        password: "Mot de passe",
+        signIn: "Se Connecter",
+        remember: "Souviens-toi de Moi"
     },
     greek: {
-        email:"Διεύθυνση Ηλεκτρονικού Ταχυδρομείου",
-        password:"Κωδικός",
-        signIn:"Είσοδος",
-        remember:"Διατήρηση σύνδεσης"
+        email: "Διεύθυνση Ηλεκτρονικού Ταχυδρομείου",
+        password: "Κωδικός",
+        signIn: "Είσοδος",
+        remember: "Διατήρηση σύνδεσης"
     }
-}
+};
 
 class Form extends Component {
-
-    static contextType = LanguageContext
+    static contextType = LanguageContext;
 
     render() {
         const { classes } = this.props;
-        const {language, changeLanguage} = this.context;
-        const {email, password, signIn, remember} = words[language]
+        const { language, changeLanguage } = this.context;
+        const { email, password, signIn, remember } = words[language];
         return (
             <main className={classes.main}>
                 <Paper className={classes.paper}>
@@ -65,23 +62,10 @@ class Form extends Component {
                         </FormControl>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="password">{password}</InputLabel>
-                            <Input
-                                id="password"
-                                name="password"
-                                type="password"
-                            ></Input>
+                            <Input id="password" name="password" type="password"></Input>
                         </FormControl>
-                        <FormControlLabel
-                            control={<Checkbox color="primary" />}
-                            label={remember}
-                        />
-                        <Button
-                            variant="contained"
-                            type="submit"
-                            fullWidth
-                            color="primary"
-                            className={classes.submit}
-                        >
+                        <FormControlLabel control={<Checkbox color="primary" />} label={remember} />
+                        <Button variant="contained" type="submit" fullWidth color="primary" className={classes.submit}>
                             {signIn}
                         </Button>
                     </form>
